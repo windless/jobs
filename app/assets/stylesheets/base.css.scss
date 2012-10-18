@@ -1,1 +1,15 @@
-@import "bootstrap"
+@import "bootstrap";
+
+body {
+  margin-top: 60px;
+}
+
+#logo {
+  float: left;
+  font-size: 2em;
+  color: white;
+  padding: 10px;
+  &:hover {
+    text-decoration: none;
+  }
+}
