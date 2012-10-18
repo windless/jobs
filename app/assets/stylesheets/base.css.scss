@@ -2,6 +2,7 @@
 
 body {
   margin-top: 60px;
+  background: #C0DEED;
 }
 
 #logo {
@@ -11,5 +12,30 @@ body {
   padding: 10px;
   &:hover {
     text-decoration: none;
+  }
+}
+
+div.box {
+  padding: 10px;
+  background: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+div.sidebar {
+  h1 {
+    font-size: .7em;
+    border-bottom: 1px solid #ddd;
+    color: #999;
+    text-align: center;
+    margin: 0;
+    line-height: 20px;
+    padding-bottom: 5px;
+  }
+
+  p {
+    padding-left: 10px;
+    padding-top: 10px;
   }
 }
