@@ -1,6 +1,5 @@
 module SessionsHelper
   def signed_in?
-    logger.debug "current user: #{current_user.to_yaml}"
     !current_user.nil?
   end
 
