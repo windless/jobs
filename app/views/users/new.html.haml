@@ -4,6 +4,7 @@
   .box.span9
     %legend 注册新用户
     = form_for @user, html: { class: 'form-horizontal' } do |f|
+      = render 'shared/error_messages', object: f.object
       .control-group
         = f.label :name, '姓名', class: 'control-label'
         .controls

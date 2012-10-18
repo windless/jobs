@@ -1,0 +1,8 @@
+- if object.errors.any?
+  .alert.alert-block.alert-error
+    %a.close{ data: { dismiss: 'alert' }, href: '#' } x
+    %p
+      %strong= "有#{object.errors.count}处问题导致无法提交"
+    %ul
+      - object.errors.full_messages.each do |msg|
+        %li= msg
