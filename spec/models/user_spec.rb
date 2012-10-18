@@ -19,6 +19,7 @@ describe User do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:password_digest) }
+  it { should respond_to(:authenticate) }
 
   describe "when name is not present" do
     before { @user.name = " " }
@@ -83,5 +84,20 @@ describe User do
   describe "when password is too short" do
     before { @user.password = "a" * 5 }
     it { should_not be_valid }
+  end
+
+  describe "return value of authenticate method" do
+    before { @user.save! }
+
+    context "with valid password" do
+      let(:user) { User.find_by_email(@user.email) }
+      it { should == user.authenticate(@user.password) }
+    end
+
+    context "with invalid password" do
+      let(:user) { @user.authenticate('invalid') }
+      it { should_not == user }
+      specify { user.should be_false }
+    end
   end
 end
