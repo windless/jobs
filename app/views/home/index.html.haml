@@ -1,2 +1,9 @@
 - provide :title, '主页'
-%h1 欢迎
+- if signed_in?
+- else
+  .row.hero-unit
+    %h1 欢迎
+    %p
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .center
+      = link_to '注册', signup_path, class: 'btn btn-large btn-primary'
