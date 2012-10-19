@@ -1,4 +1,17 @@
 # encoding: utf-8
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  password_digest :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  remember_token  :string(255)
+#
+
 
 require 'spec_helper'
 
@@ -21,6 +34,7 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
+  it { should respond_to(:projects) }
 
   describe "remember token" do
     before { @user.save! }
@@ -70,10 +84,10 @@ describe User do
     it "is not valid" do
       addresses = %w[user@foo,com user_at_foo.org example.user@foo.
                      foo@bar_baz.com foo@bar+baz.com]
-      addresses.each do |email|
-        @user.email = email
-        @user.should_not be_valid
-      end
+                     addresses.each do |email|
+                       @user.email = email
+                       @user.should_not be_valid
+                     end
     end
   end
 
@@ -105,5 +119,18 @@ describe User do
       it { should_not == user }
       specify { user.should be_false }
     end
+  end
+
+  describe "project associations" do
+    before { @user.save! }
+    let!(:project1) { FactoryGirl.create(:project, user: @user, created_at: 1.day.ago) }
+    let!(:project2) { FactoryGirl.create(:project, user: @user, created_at: 1.hour.ago) }
+
+    it "has right projects in right order" do
+      @user.projects.should == [project2, project1]
+    end
+
+    specify { project1.creator.should == @user }
+
   end
 end

@@ -1,0 +1,8 @@
+= div_for(project) do
+  .title
+    %h2= link_to project.name, project
+    %span= "(#{pluralize(project.sprints.count, 'sprint')})"
+  .info
+    %p.description= project.description
+    = project_simple_info(project)
+

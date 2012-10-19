@@ -2,27 +2,28 @@
 
 .row-fluid
   .box.span9
-    %legend 注册新用户
-    = form_for @user, html: { class: 'form-horizontal' } do |f|
-      = render 'shared/error_messages', object: f.object
-      .control-group
-        = f.label :name, '姓名', class: 'control-label'
-        .controls
-          = f.text_field :name
-      .control-group
-        = f.label :email, 'Email', class: 'control-label'
-        .controls
-          = f.email_field :email
-      .control-group
-        = f.label :password, '密码', class: 'control-label'
-        .controls
-          = f.password_field :password
-      .control-group
-        = f.label :password_confirmation, '确认密码', class: 'control-label'
-        .controls
-          = f.password_field :password_confirmation
-      .form-actions
-        = f.submit '提交注册信息', class: 'btn btn-primary'
+    %fieldset
+      %legend 注册新用户
+      = form_for @user, html: { class: 'form-horizontal' } do |f|
+        = render 'shared/error_messages', object: f.object
+        .control-group
+          = f.label :name, '姓名', class: 'control-label'
+          .controls
+            = f.text_field :name
+        .control-group
+          = f.label :email, 'Email', class: 'control-label'
+          .controls
+            = f.email_field :email
+        .control-group
+          = f.label :password, '密码', class: 'control-label'
+          .controls
+            = f.password_field :password
+        .control-group
+          = f.label :password_confirmation, '确认密码', class: 'control-label'
+          .controls
+            = f.password_field :password_confirmation
+        .form-actions
+          = f.submit '提交注册信息', class: 'btn btn-primary'
   .span3.box.sidebar
     %h1 已经有帐号了？
     %p

@@ -1,0 +1,33 @@
+div.project {
+  background: white;
+  border-bottom: 1px solid #DDD;
+  margin: 0;
+  padding-left: 20px;
+
+  .title {
+    h2 {
+      font-size: 1.5em;
+      display: inline;
+    }
+    span {
+      margin-left: 6px;
+    }
+  }
+
+
+  .info {
+    padding-left: 10px;
+    p {
+      margin-bottom: 0;
+    }
+
+    em {
+      color: #bbb;
+      font-style: normal;
+
+      a {
+        margin-right: 4px;
+      }
+    }
+  }
+}

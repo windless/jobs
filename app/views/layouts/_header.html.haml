@@ -6,6 +6,7 @@
         %ul.nav.pull-right
           %li= link_to '主页', root_path
           - if signed_in?
+            %li= link_to 'Projects', projects_path
             %li.dropdown
               %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
                 = current_user.name

@@ -15,6 +15,7 @@ describe "HomePages" do
     it { should have_selector('h1', text: '欢迎') }
     it { should have_link('注册', href: signup_path) }
     it { should have_link('登录', href: signin_path) }
+    it { should_not have_link('Projects', href: projects_path) }
   end
 
   describe "for signin-user" do
@@ -27,6 +28,7 @@ describe "HomePages" do
     it { should_not have_link('注册', href: signup_path) }
     it { should_not have_link('登录', href: signin_path) }
     it { should have_link('退出', href: signout_path) }
+    it { should have_link('Projects', href: projects_path) }
   end
 
   describe "sign_in method" do

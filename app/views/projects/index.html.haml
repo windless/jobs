@@ -1,0 +1,13 @@
+- provide :title, 'Projects'
+
+.row-fluid
+  .span9.box-gray
+    .page-header
+      %h1 Projects
+    .projects
+      = render @projects
+    = will_paginate @projects
+  .span3.box.sidebar
+    %h1 搜索
+    %p
+      = search_form
