@@ -1,5 +1,10 @@
 - provide :title, '主页'
 - if signed_in?
+  .box-gray.span12
+    .page-header
+      %h1 我的项目
+    = render partial: 'projects/project', collection: @projects
+    = will_paginate @projects
 - else
   .row.hero-unit
     %h1 欢迎
