@@ -1,0 +1,23 @@
+- provide :title, @project.name
+
+.row-fluid
+  .span9.box-gray
+    .page-header
+      %h1= @project.name
+    - if @project.current_sprint
+      .sprint
+        %h2= "当前：#{@project.current_sprint.name}"
+    .create-sprint
+      = link_to "new sprint", project_sprints_path(@project), method: :post, class: 'btn btn-primary'
+  .span3.box.sidebar
+    %h1 历史
+    %p
+      %ul
+        - @project.sprints.recent.each do |sprint|
+          %li= link_to sprint.name
+      .span10
+        .pull-right
+          = link_to '更多...', project_sprints_path(@project)
+
+
+

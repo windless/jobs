@@ -7,8 +7,19 @@ describe "Authentications" do
 
   describe "projects page" do
     before { get projects_path }
-    it "redirects to signin_path" do
-      response.should redirect_to(signin_path)
-    end
+    specify { response.should redirect_to(signin_path) }
+    specify { flash[:notice].should_not be_nil }
+  end
+
+  describe "new project page" do
+    before { get new_project_path }
+    specify { response.should redirect_to(signin_path) }
+    specify { flash[:notice].should_not be_nil }
+  end
+
+  describe "create project" do
+    before { post projects_path }
+    specify { response.should redirect_to(signin_path) }
+    specify { flash[:notice].should_not be_nil }
   end
 end

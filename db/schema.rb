@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(:version => 20121019090054) do
 
   create_table "sprints", :force => true do |t|
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "description"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "sprints", ["project_id"], :name => "index_sprints_on_project_id"

@@ -24,6 +24,7 @@ describe Project do
   it { should respond_to(:created_at) }
   it { should respond_to(:sprints) }
   it { should respond_to(:user_id) }
+  it { should respond_to(:current_sprint) }
 
   context "when name is not present" do
     before { @project.name = " " }
@@ -38,6 +39,14 @@ describe Project do
   context "when description is too long" do
     before { @project.description = "a" * 256 }
     it { should_not be_valid }
+  end
+
+  describe "current_sprint" do
+    before { @project.save! }
+    let!(:older_sprint) { FactoryGirl.create :sprint, project: @project, created_at: 1.day.ago }
+    let!(:newer_sprint) { FactoryGirl.create :sprint, project: @project, created_at: 1.hour.ago }
+
+    its(:current_sprint) { should == newer_sprint }
   end
 end
 

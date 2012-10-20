@@ -62,4 +62,16 @@ describe "ProjectPages" do
       end
     end
   end
+
+  describe "show page" do
+    let(:project) { FactoryGirl.create(:project, user: user) }
+    let!(:sprint1) { FactoryGirl.create(:sprint, project: project, created_at: 1.day.ago) }
+    let!(:sprint2) { FactoryGirl.create(:sprint, project: project, created_at: 1.hour.ago) }
+    before do
+      visit project_path(project)
+    end
+    
+    it { should have_selector('title', text: project.name) }
+    it { should have_content("当前：#{sprint2.name}") }
+  end
 end

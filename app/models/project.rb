@@ -35,4 +35,8 @@ class Project < ActiveRecord::Base
       paginate(page: page, per_page: 10)
     end
   end
+
+  def current_sprint
+    sprints.first
+  end
 end
