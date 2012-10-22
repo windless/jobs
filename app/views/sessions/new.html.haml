@@ -1,22 +1,17 @@
 
 - provide :title, '登录'
 
-.row-fluid
-  .box.span9
-    %fieldset
-      %legend 登录
-      = form_for(:session, url: sessions_path, html: { class: 'form-horizontal' }) do |f|
-        .control-group
-          = f.label :email, 'Email', class: 'control-label'
-          .controls
-            = f.email_field :email
-        .control-group
-          = f.label :password, '密码', class: 'control-label'
-          .controls
-            = f.password_field :password
-        .form-actions
-          = f.submit '登录', class: 'btn btn-primary'
-  .span3.box.sidebar
-    %h1 还没有帐号了？
-    %p
-      = link_to '注册', signup_path
+.form-wrapper.login
+  %fieldset
+    %legend 登录
+    = form_for(:session, url: sessions_path, html: { class: 'form-horizontal' }) do |f|
+      .control-group
+        = f.label :email, 'Email', class: 'control-label'
+        .controls
+          = f.email_field :email
+      .control-group
+        = f.label :password, '密码', class: 'control-label'
+        .controls
+          = f.password_field :password
+      .pull-right
+        = f.submit '登录', class: 'btn btn-primary'
