@@ -8,7 +8,7 @@ Jobs::Application.routes.draw do
   end
 
   resources :sprints do
-    resources :works, only: [:new]
+    resources :works, only: [:create]
   end
 
   match '/signin', to: 'sessions#new'
