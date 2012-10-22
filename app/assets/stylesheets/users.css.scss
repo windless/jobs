@@ -1,0 +1,31 @@
+.form-wrapper {
+  legend { 
+    text-align: center;
+    padding: 5px 0;
+  }
+  width: 310px;
+  margin: 20px auto;
+  background: white;
+  padding: 0 20px 50px 20px;
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  box-shadow: 2px 2px 2px #ddd;
+
+
+  .pull-right {
+    margin-right: 10px;
+  }
+
+  .form-horizontal {
+    .control-label {
+      width: 5em;
+    }
+
+    .controls {
+      margin-left: 6em;
+    }
+  }
+}
+

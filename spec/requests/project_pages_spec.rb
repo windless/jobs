@@ -69,6 +69,5 @@ describe "ProjectPages" do
     end
     
     it { should have_selector('title', text: project.name) }
-    it { should have_selector('h2', text: "当前：sprint 2") }
   end
 end

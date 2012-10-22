@@ -1,23 +1,31 @@
 .sprint
   %section
     %h3 工作
-    %ul
+    %ol
       - sprint.uncheck_works.each do |work|
         %li= work.name
   %section
     %h3 Check out
-    %ul
+    %ol
       - sprint.checked_out_works.each do |work|
         %li= work.name
   %section
     %h3 Review
-    %ul
+    %ol
       - sprint.review_works.each do |work|
         %li= work.name
   %section
     %h3 Complete
-    %ul
+    %ol
       - sprint.complete_works do |work|
         %li= work.name
-  .actions
-    = link_to "New work", new_sprint_work_path(sprint), class: 'btn btn-small'
+  .new-work
+    %h4 new work
+    = form_for(:work, url: sprint_works_path(sprint), html: { method: :post }) do |f|
+      = f.label :name, '名称'
+      = f.text_field :name
+
+      = f.label :description, '描述'
+      = f.text_area :description, rows: 2
+
+      = f.submit '添加', class: 'btn btn-small'

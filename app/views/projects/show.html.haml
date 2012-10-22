@@ -4,8 +4,8 @@
   .span9.box-gray
     .page-header
       %h1= @project.name
-    .current-sprint
-      - if @project.current_sprint
+    - if @project.current_sprint
+      .current-sprint{ id: "sprint-#{@project.current_sprint.id}" }
         %h2 当前Sprint
         = render @project.current_sprint
     .create-sprint

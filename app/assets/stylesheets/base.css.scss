@@ -2,7 +2,11 @@
 
 body {
   margin-top: 60px;
-  background: #C0DEED;
+  background: image_url("bg.png");
+}
+
+div.hero-unit {
+  background: white;
 }
 
 #logo {
