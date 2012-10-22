@@ -123,8 +123,8 @@ describe User do
 
   describe "project associations" do
     before { @user.save! }
-    let!(:project1) { FactoryGirl.create(:project, user: @user, created_at: 1.day.ago) }
-    let!(:project2) { FactoryGirl.create(:project, user: @user, created_at: 1.hour.ago) }
+    let!(:project1) { FactoryGirl.create(:project, creator: @user, created_at: 1.day.ago) }
+    let!(:project2) { FactoryGirl.create(:project, creator: @user, created_at: 1.hour.ago) }
 
     it "has right projects in right order" do
       @user.projects.should == [project2, project1]

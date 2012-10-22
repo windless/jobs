@@ -1,3 +1,6 @@
+div.projects {
+  min-height: 300px;
+}
 div.project {
   background: white;
   border-bottom: 1px solid #DDD;
@@ -38,10 +41,10 @@ div.create-sprint {
   border-top: 1px solid #ddd;
 }
 
-div.sprint {
-  padding-left: 10px;
-  h2 {
-    font-size: 1.5em;
-  }
+div.current-sprint {
   background: white;
+  h2 {
+    text-align: center;
+  }
+  padding: 0;
 }

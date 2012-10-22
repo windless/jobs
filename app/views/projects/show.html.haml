@@ -4,11 +4,12 @@
   .span9.box-gray
     .page-header
       %h1= @project.name
-    - if @project.current_sprint
-      .sprint
-        %h2= "当前：#{@project.current_sprint.name}"
+    .current-sprint
+      - if @project.current_sprint
+        %h2 当前Sprint
+        = render @project.current_sprint
     .create-sprint
-      = link_to "new sprint", project_sprints_path(@project), method: :post, class: 'btn btn-primary'
+      = link_to "new sprint", new_project_sprint_path(@project), class: 'btn btn-primary'
   .span3.box.sidebar
     %h1 历史
     %p

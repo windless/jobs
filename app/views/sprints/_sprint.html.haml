@@ -1,0 +1,23 @@
+.sprint
+  %section
+    %h3 工作
+    %ul
+      - sprint.uncheck_works.each do |work|
+        %li= work.name
+  %section
+    %h3 Check out
+    %ul
+      - sprint.checked_out_works.each do |work|
+        %li= work.name
+  %section
+    %h3 Review
+    %ul
+      - sprint.review_works.each do |work|
+        %li= work.name
+  %section
+    %h3 Complete
+    %ul
+      - sprint.complete_works do |work|
+        %li= work.name
+  .actions
+    = link_to "New work", new_sprint_work_path(sprint), class: 'btn btn-small'

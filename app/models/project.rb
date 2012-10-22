@@ -13,7 +13,7 @@
 class Project < ActiveRecord::Base
   attr_accessible :name, :description
 
-  belongs_to :user
+  belongs_to :creator, class_name: "User", foreign_key: "user_id"
   has_many :sprints
 
   validates :name,
@@ -23,20 +23,18 @@ class Project < ActiveRecord::Base
     length: { maximum: 255 }
 
   default_scope order: 'created_at DESC'
-
-  def creator
-    user
-  end
+  scope :with_creator, joins(:creator)
 
   def self.search(search, page)
     if search
-      where("name LIKE ?", "%#{search}%").paginate(page: page, per_page: 10)
+      with_creator.where("name LIKE ?", "%#{search}%").paginate(page: page, per_page: 10)
     else
-      paginate(page: page, per_page: 10)
+      with_creator.paginate(page: page, per_page: 10)
     end
   end
 
   def current_sprint
+    logger.debug "sprints: #{sprints.count}"
     sprints.first
   end
 end

@@ -32,3 +32,5 @@ group :test do
 end
 
 gem 'annotate', :group => :development
+gem 'quiet_assets', :group => :development
+gem 'thin'

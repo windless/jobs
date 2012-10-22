@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019090054) do
+ActiveRecord::Schema.define(:version => 20121022063606) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -43,5 +43,17 @@ ActiveRecord::Schema.define(:version => 20121019090054) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "works", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "sprint_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "state",       :default => "uncheck"
+    t.integer  "checker_id"
+  end
+
+  add_index "works", ["sprint_id"], :name => "index_works_on_sprint_id"
 
 end

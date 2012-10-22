@@ -2,8 +2,13 @@ Jobs::Application.routes.draw do
   resources :users, only: [:show, :create]
   resources :sessions, only: [:create]
   resources :projects, only: [:index, :show, :new, :create]
+
   resources :projects do
-    resources :sprints, only: [:show, :create, :index]
+    resources :sprints, only: [:show, :create, :index, :new]
+  end
+
+  resources :sprints do
+    resources :works, only: [:new]
   end
 
   match '/signin', to: 'sessions#new'

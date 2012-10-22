@@ -1,0 +1,16 @@
+- provide :title, "新的Sprint"
+
+.row-fluid
+  .span9.box
+    %fieldset
+      %legend= @sprint.prepare_name
+      = form_for @sprint, url: project_sprints_path(@project), html: { class: 'form-horizontal' } do |f|
+        = render 'shared/error_messages', object: f.object
+        .control-group
+          = f.label :description, '描述', class: 'control-label'
+          .controls
+            = f.text_area :description, rows: 6, class: 'span8'
+        .form-actions
+          = f.submit '提交', class: 'btn btn-primary'
+
+
