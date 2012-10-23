@@ -11,17 +11,17 @@ class Work < ActiveRecord::Base
 
   def check_out_by!(user)
     self.checker = user
-    self.state = :started
+    self.state = "started"
     save!
   end
 
   def finish!
-    self.state = :review
+    self.state = "complete"
     save!
   end
 
   def review!
-    self.state = :complete
+    self.state = "review"
     save!
   end
 end

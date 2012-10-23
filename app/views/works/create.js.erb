@@ -1,0 +1,7 @@
+$('#sprint-tab li:eq(0) a').tab('show');
+
+var count = $('#new>ul').children().length;
+$('#new>ul').append(
+    '<li id="work-<%= @work.id %>">' + (count + 1) + '. <%= @work.name %><%= link_to 'check out', checkout_work_path(@work), class: 'btn btn-mini btn-info', method: :post, remote: true %></li>'
+    );
+$('#new-count').text(count + 1);

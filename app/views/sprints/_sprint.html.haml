@@ -1,13 +1,25 @@
 .sprint
   %ul.nav.nav-tabs#sprint-tab
     %li.active
-      %a{ href: "#new", "data-toggle" => 'tab' } new works (#{sprint.uncheck_works.count})
+      %a{ href: "#new", "data-toggle" => 'tab' }
+        new(
+        %span#new-count= sprint.uncheck_works.count
+        )
     %li
-      %a{ href: "#check-out", "data-toggle" => 'tab' } check out (#{sprint.checked_out_works.count})
+      %a{ href: "#check-out", "data-toggle" => 'tab' } 
+        check out (
+        %span#checkout-count= sprint.checked_out_works.count
+        )
     %li
-      %a{ href: "#review", "data-toggle" => "tab" } review (#{sprint.review_works.count})
+      %a{ href: "#review", "data-toggle" => "tab" }
+        review (
+        %span#review-count= sprint.review_works.count
+        )
     %li
-      %a{ href: "#complete", "data-toggle"=> "tab" } complete (#{sprint.complete_works.count})
+      %a{ href: "#complete", "data-toggle"=> "tab" } 
+        complete (
+        %span#complete-count= sprint.complete_works.count
+        )
   .tab-content
     .tab-pane.active#new
       %ul
@@ -23,7 +35,7 @@
         = render sprint.complete_works
 
   .new-work
-    = form_for(:work, url: sprint_works_path(sprint), html: { method: :post }) do |f|
+    = form_for(:work, url: sprint_works_path(sprint), html: { method: :post }, remote: true) do |f|
       = f.text_field :name, placeholder: "名称", class: 'name-field'
       = f.text_field :description, placeholder: "描述。。。", class: 'des-field'
 

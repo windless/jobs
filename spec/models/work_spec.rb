@@ -33,6 +33,17 @@ describe Work do
     its(:checker) { should == user }
   end
 
+  describe "review by user" do
+    let(:user) { FactoryGirl.create :user }
+    before do
+      @work.check_out_by!(user)
+      @work.review!
+      @work.reload
+    end
+
+    its(:state) { should == "review" }
+  end
+
   describe "finish by user" do
     let(:user) { FactoryGirl.create :user }
     before do
@@ -41,7 +52,7 @@ describe Work do
       @work.reload
     end
 
-    its(:state) { should == "review" }
+    its(:state) { should == "complete" }
   end
 end
 

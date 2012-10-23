@@ -9,17 +9,29 @@ class WorksController < ApplicationController
   end
 
   def checkout
-    Work.find(params[:id]).check_out_by!(current_user)
-    redirect_to :back
+    @work = Work.find(params[:id])
+    @work.check_out_by!(current_user)
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def finish
-    Work.find(params[:id]).finish!
-    redirect_to :back
+    @work = Work.find(params[:id])
+    @work.finish!
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def review
-    Work.find(params[:id]).review!
-    redirect_to :back
+    @work = Work.find(params[:id])
+    @work.review!
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 end
