@@ -2,14 +2,13 @@
 
 .row-fluid
   .span9.box-gray
-    .page-header
+    .page-header.project-title
       %h1= @project.name
+      = link_to "new sprint", new_project_sprint_path(@project), class: 'btn btn-primary'
     - if @project.current_sprint
       .current-sprint{ id: "sprint-#{@project.current_sprint.id}" }
         %h2 当前Sprint
         = render @project.current_sprint
-    .create-sprint
-      = link_to "new sprint", new_project_sprint_path(@project), class: 'btn btn-primary'
   .span3.box.sidebar
     %h1 历史
     %p

@@ -1,31 +1,30 @@
 .sprint
-  %section
-    %h3 工作
-    %ol
-      - sprint.uncheck_works.each do |work|
-        %li= work.name
-  %section
-    %h3 Check out
-    %ol
-      - sprint.checked_out_works.each do |work|
-        %li= work.name
-  %section
-    %h3 Review
-    %ol
-      - sprint.review_works.each do |work|
-        %li= work.name
-  %section
-    %h3 Complete
-    %ol
-      - sprint.complete_works do |work|
-        %li= work.name
+  %ul.nav.nav-tabs#sprint-tab
+    %li.active
+      %a{ href: "#new", "data-toggle" => 'tab' } new works (#{sprint.uncheck_works.count})
+    %li
+      %a{ href: "#check-out", "data-toggle" => 'tab' } check out (#{sprint.checked_out_works.count})
+    %li
+      %a{ href: "#review", "data-toggle" => "tab" } review (#{sprint.review_works.count})
+    %li
+      %a{ href: "#complete", "data-toggle"=> "tab" } complete (#{sprint.complete_works.count})
+  .tab-content
+    .tab-pane.active#new
+      %ul
+        = render sprint.uncheck_works
+    .tab-pane#check-out
+      %ul
+        = render sprint.checked_out_works
+    .tab-pane#review
+      %ul
+        = render sprint.review_works
+    .tab-pane#complete
+      %ul
+        = render sprint.complete_works
+
   .new-work
-    %h4 new work
     = form_for(:work, url: sprint_works_path(sprint), html: { method: :post }) do |f|
-      = f.label :name, '名称'
-      = f.text_field :name
+      = f.text_field :name, placeholder: "名称", class: 'name-field'
+      = f.text_field :description, placeholder: "描述。。。", class: 'des-field'
 
-      = f.label :description, '描述'
-      = f.text_area :description, rows: 2
-
-      = f.submit '添加', class: 'btn btn-small'
+      = f.submit 'new work item', class: 'btn btn-small'

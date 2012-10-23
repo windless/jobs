@@ -45,6 +45,78 @@ div.current-sprint {
   background: white;
   h2 {
     text-align: center;
+    border: 1px solid #ddd;
+    border-top: none;
+    background: -webkit-linear-gradient(90deg, #ddd, white);
   }
   padding: 0;
+
+  .sprint {
+    .nav-tabs{
+      margin-bottom: 0;
+      li:first-child {
+        a {
+          border-left: none;
+        }
+      }
+      a {
+        border-radius: 0;
+        margin: 0;
+        border-top: none;
+      }
+    }
+  }
+
+  .tab-pane {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 8px 0 8px 5px;
+        border-bottom: 1px solid #ddd;
+
+        &:hover {
+          background: #C0DEED;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          float: right;
+          position: relative;
+          top: -1px;
+          margin-right: 5px;
+        }
+      }
+
+    }
+  }
+
+}
+
+.project-title {
+  h1 {
+    float: left;
+    margin-right: 500px;
+  }
+}
+
+.new-work {
+  border-top: 1px solid #ddd;
+  padding: 15px 10px 7px 10px;
+  .name-field {
+    width: 12em;
+  }
+  .des-field {
+    width: 30em;
+  }
+
+  .btn {
+    position: relative;
+    top: -4px;
+  }
 }

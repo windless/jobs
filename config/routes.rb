@@ -11,6 +11,14 @@ Jobs::Application.routes.draw do
     resources :works, only: [:create]
   end
 
+  resources :works do
+    member do
+      post :checkout
+      post :finish
+      post :review
+    end
+  end
+
   match '/signin', to: 'sessions#new'
   match '/signup', to: 'users#new'
   match '/signout', to: 'sessions#destroy', via: :delete

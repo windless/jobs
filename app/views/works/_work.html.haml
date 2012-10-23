@@ -1,0 +1,5 @@
+%li
+  = "#{work_counter + 1}. #{work.name}"
+  = link_to "check out", checkout_work_path(work), method: :post, class: 'btn btn-mini btn-info' if work.state == "uncheck"
+  = link_to 'review', finish_work_path(work), method: :post, class: 'btn btn-mini btn-info' if work.state == "started"
+  = link_to 'finish', review_work_path(work), method: :post, class: 'btn btn-mini btn-info' if work.state == "review"
