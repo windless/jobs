@@ -35,7 +35,7 @@
         = render sprint.complete_works
 
   .new-work
-    = form_for(:work, url: sprint_works_path(sprint), html: { method: :post }, remote: true) do |f|
+    = form_for(:work, url: sprint_works_path(sprint), html: { method: :post }) do |f|
       = f.text_field :name, placeholder: "名称", class: 'name-field'
       = f.text_field :description, placeholder: "描述。。。", class: 'des-field'
 
