@@ -1,6 +1,6 @@
-%li{ id: "work-#{work.id}" }
-  %span.work_name= "#{work_counter + 1}. #{work.name}"
-  %span.work_des= "#{work.description}" 
+%li.work{ id: "work-#{work.id}" }
+  %span.work_name= work.name
+  %span.work_des= work.description
   = link_to "check out", checkout_work_path(work), method: :post, class: 'btn btn-mini btn-info' if work.state == "uncheck"
   = link_to 'review', review_work_path(work), method: :post, class: 'btn btn-mini btn-info' if work.state == "started"
   = link_to 'finish', finish_work_path(work), method: :post, class: 'btn btn-mini btn-info' if work.state == "review"
