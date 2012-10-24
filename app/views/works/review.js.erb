@@ -3,8 +3,5 @@ $('#checkout-count').text($('#check-out ul').children().length);
 
 $('#sprint-tab li:eq(2) a').tab('show');
 
-var count = $('#review ul').children().length;
-$('#review ul').append(
-    '<li id="work-<%= @work.id %>">' + (count + 1) + '. <%= @work.name %><%= link_to 'finish', finish_work_path(@work), class: 'btn btn-mini btn-info', method: :post, remote: true %></li>'
-    );
-$('#review-count').text(count + 1);
+$('#review ul').append('<%= j render(@work) %>');
+$('#review-count').text($('#review ul').children().length);

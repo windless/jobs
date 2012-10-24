@@ -3,8 +3,5 @@ $('#review-count').text($('#review ul').children().length);
 
 $('#sprint-tab li:eq(3) a').tab('show');
 
-var count = $('#complete ul').children().length;
-$('#complete ul').append(
-    '<li id="work-<%= @work.id %>">' + (count + 1) + '. <%= @work.name %></li>'
-    );
-$('#complete-count').text(count + 1);
+$('#complete ul').append('<%= j render(@work) %>');
+$('#complete-count').text($('#complete ul').children().length);
