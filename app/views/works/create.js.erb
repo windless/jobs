@@ -1,4 +1,4 @@
 $('#sprint-tab li:eq(0) a').tab('show');
 
-$('#new > ul').append('<%= j render(@work) %>');
-$('#new-count').text($('#new > ul').children().length);
+$('#new table').append('<%= j render(@work) %>');
+$('#new-count').text($('#new tr').length);

@@ -22,16 +22,16 @@
         )
   .tab-content
     .tab-pane.active#new
-      %ul
+      %table
         = render sprint.uncheck_works
     .tab-pane#check-out
-      %ul
+      %table
         = render sprint.checked_out_works
     .tab-pane#review
-      %ul
+      %table
         = render sprint.review_works
     .tab-pane#complete
-      %ul
+      %table
         = render sprint.complete_works
 
   .new-work

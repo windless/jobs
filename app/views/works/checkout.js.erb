@@ -1,7 +1,7 @@
 $('#new #work-<%= @work.id %>').remove();
-$('#new-count').text($('#new ul').children().length);
+$('#new-count').text($('#new tr').length);
 
 $('#sprint-tab li:eq(1) a').tab('show');
 
-$('#check-out ul').append('<%= j render(@work) %>');
-$('#checkout-count').text($('#check-out ul').children().length);
+$('#check-out table').append('<%= j render(@work) %>');
+$('#checkout-count').text($('#check-out tr').length);

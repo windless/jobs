@@ -68,22 +68,20 @@ div.current-sprint {
   }
 
   .tab-pane {
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    table {
       counter-reset: work_index;
 
-      li.work {
-        padding: 8px 0 8px 5px;
-        border-bottom: 1px solid #ddd;
+      tr.work {
+        counter-increment: work_index;
 
         &:hover {
           background: #C0DEED;
         }
 
         &:last-child {
-          border-bottom: none;
+          td {
+            border-bottom: none;
+          }
         }
 
         a {
@@ -93,9 +91,46 @@ div.current-sprint {
           margin-right: 5px;
         }
 
-        &:before {
-          counter-increment: work_index;
-          content: counter(work_index) "."
+        td {
+          padding: 10px 0;
+          border-bottom: 1px solid #ddd;
+        }
+        span.fixed {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        td.work_name {
+          width: 20%;
+          span {
+            &:before {
+              content: counter(work_index) ". "
+            }
+            width: 10em;
+            padding-left: 10px;
+          }
+        }
+
+        td.work_des {
+          padding-left: 10px;
+          width: 60%;
+          span {
+            width: 30em;
+          }
+        }
+
+        td.action {
+          width: 30%;
+          span {
+            padding-left: 100px;
+          }
+          i {
+            float: right;
+            margin: 0 10px;
+            cursor: pointer;
+          }
         }
       }
 
