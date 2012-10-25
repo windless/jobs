@@ -61,7 +61,7 @@ describe Sprint do
       let(:review_work) { FactoryGirl.create(:work, sprint: @sprint) }
       before do
         review_work.check_out_by!(worker)
-        review_work.finish!
+        review_work.review!
       end
 
       its(:review_works) { should include(review_work) }
@@ -71,8 +71,8 @@ describe Sprint do
       let(:complete_work) { FactoryGirl.create :work, sprint: @sprint }
       before do
         complete_work.check_out_by!(worker)
-        complete_work.finish!
         complete_work.review!
+        complete_work.finish!
       end
 
       its(:complete_works) { should include(complete_work) }
