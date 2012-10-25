@@ -4,7 +4,8 @@
   %td.work_des
     %span.fixed= work.description
     %td.action
-      %i.icon-remove
+      = link_to work, method: :delete, remote: true do
+        %i.icon-remove
       %span
         -case work.state
         -when "uncheck"

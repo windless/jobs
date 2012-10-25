@@ -11,6 +11,7 @@ Jobs::Application.routes.draw do
     resources :works, only: [:create]
   end
 
+  resources :works, only: [:destroy]
   resources :works do
     member do
       post :checkout

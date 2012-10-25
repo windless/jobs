@@ -34,4 +34,12 @@ class WorksController < ApplicationController
       format.js
     end
   end
+
+  def destroy
+    Work.find(params[:id]).destroy
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render 'destroy', locals: { id: params[:id] } }
+    end
+  end
 end
